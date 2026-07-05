@@ -6,6 +6,7 @@ import SplitText from './react-bits/SplitText';
 import { BlurText } from './react-bits/BlurText';
 import { DecryptedText } from './react-bits/DecryptedText';
 import { Magnet } from './react-bits/Magnet';
+import ShinyText from './react-bits/ShinyText';
 
 export function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,8 +26,9 @@ export function Hero() {
       {/* Navbar */}
       <header className="w-full max-w-[1440px] flex justify-between items-center px-4 md:px-8 py-4 md:py-6 z-30 relative">
         <div className="flex items-center gap-2">
-          <span className="font-bold text-lg md:text-xl tracking-wide uppercase text-white">Dzaky</span>
-          <div className="w-2 h-2 bg-neon rounded-full" />
+          <span className="font-bold text-lg md:text-xl tracking-wide uppercase text-white">
+            <ShinyText text="Dzaky's Portfolio" speed={3} />
+          </span>
         </div>
         
         <nav className="hidden md:flex items-center gap-12 font-mono text-xs uppercase tracking-widest text-zinc-400">

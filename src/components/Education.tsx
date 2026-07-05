@@ -24,52 +24,49 @@ const historyData = [
   }
 ];
 
-function EducationCard({ item, index }: { item: typeof historyData[0], index: number }) {
+function EducationCard({ item, index, total }: { item: typeof historyData[0], index: number, total: number }) {
   const ref = useRef<HTMLDivElement>(null);
   
-  // Scrubbable Animation tied to this specific card's position
+  // Simple entrance animation
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start 95%", "start 25%"]
+    offset: ["start 95%", "start 50%"]
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const y = useTransform(scrollYProgress, [0, 1], [250, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [0.75, 1]);
-  const rotateX = useTransform(scrollYProgress, [0, 1], [40, 0]);
-  const rotateZ = useTransform(scrollYProgress, [0, 1], [index % 2 === 0 ? -3 : 3, 0]);
-  const filter = useTransform(scrollYProgress, [0, 1], ['blur(15px)', 'blur(0px)']);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
 
   return (
-    <motion.div 
-      ref={ref}
+    <div 
+      className="sticky"
       style={{ 
-        opacity, 
-        y, 
-        scale, 
-        rotateX,
-        rotateZ,
-        filter,
-        transformPerspective: 1200
+        top: `calc(15vh + ${index * 1.5}rem)`, 
+        marginBottom: '40vh',
+        zIndex: index
       }}
-      className="p-6 md:p-12 border border-zinc-800 bg-[#050505]/90 backdrop-blur-md rounded-lg hover:border-neon/50 transition-colors relative group"
     >
-      <div className="font-mono text-neon text-sm mb-4 font-bold tracking-widest">{item.year}</div>
-      <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-2 text-zinc-100">{item.institution}</h3>
-      <h4 className="text-lg text-zinc-400 font-medium mb-6">{item.degree}</h4>
-      <p className="text-zinc-500 text-sm md:text-base leading-relaxed font-mono">
-        {item.description}
-      </p>
-      
-      {/* Decorative Corner Brackets */}
-      <div className="absolute -top-[1px] -left-[1px] w-6 h-6 border-t-2 border-l-2 border-neon/0 group-hover:border-neon/50 transition-colors rounded-tl-lg" />
-      <div className="absolute -bottom-[1px] -right-[1px] w-6 h-6 border-b-2 border-r-2 border-neon/0 group-hover:border-neon/50 transition-colors rounded-br-lg" />
-      
-      {/* Node Decor */}
-      <div className="absolute top-8 right-8 text-zinc-800 font-mono text-sm font-bold opacity-30 group-hover:opacity-100 transition-opacity">
-        0{index + 1}
-      </div>
-    </motion.div>
+      <motion.div 
+        ref={ref}
+        style={{ opacity, scale }}
+        className="p-6 md:p-12 border border-zinc-800 bg-[#050505] backdrop-blur-xl rounded-xl shadow-[0_-15px_30px_-10px_rgba(0,0,0,0.9)] group hover:border-neon/50 transition-colors relative"
+      >
+        <div className="font-mono text-neon text-sm mb-4 font-bold tracking-widest">{item.year}</div>
+        <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-2 text-zinc-100">{item.institution}</h3>
+        <h4 className="text-lg text-zinc-400 font-medium mb-6">{item.degree}</h4>
+        <p className="text-zinc-500 text-sm md:text-base leading-relaxed font-mono">
+          {item.description}
+        </p>
+        
+        {/* Decorative Corner Brackets */}
+        <div className="absolute -top-[1px] -left-[1px] w-6 h-6 border-t-2 border-l-2 border-neon/0 group-hover:border-neon/50 transition-colors rounded-tl-xl" />
+        <div className="absolute -bottom-[1px] -right-[1px] w-6 h-6 border-b-2 border-r-2 border-neon/0 group-hover:border-neon/50 transition-colors rounded-br-xl" />
+        
+        {/* Node Decor */}
+        <div className="absolute top-8 right-8 text-zinc-800 font-mono text-sm font-bold opacity-30 group-hover:opacity-100 transition-opacity">
+          0{index + 1}
+        </div>
+      </motion.div>
+    </div>
   );
 }
 
@@ -104,12 +101,10 @@ export function Education() {
         </div>
 
         {/* Right: Scrolling Stack */}
-        <div className="lg:w-2/3 flex flex-col gap-[10vh] lg:gap-[20vh] pb-[10vh] mt-16 lg:mt-0" ref={containerRef}>
-          <div className="space-y-[10vh] lg:space-y-[15vh]">
-            {historyData.map((item, index) => (
-              <EducationCard key={index} item={item} index={index} />
-            ))}
-          </div>
+        <div className="lg:w-2/3 relative pb-[10vh] mt-16 lg:mt-0" ref={containerRef}>
+          {historyData.map((item, index) => (
+            <EducationCard key={index} item={item} index={index} total={historyData.length} />
+          ))}
         </div>
         
       </div>

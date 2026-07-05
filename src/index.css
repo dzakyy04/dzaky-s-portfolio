@@ -16,6 +16,16 @@
   --color-neon-hover: #00d635;
   --color-dark-base: #030303;
   --color-dark-surface: #0a0a0a;
+
+  --animate-shine: shine 3s linear infinite;
+  @keyframes shine {
+    0% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: -100%;
+    }
+  }
 }
 
 @layer base {

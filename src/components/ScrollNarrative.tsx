@@ -16,7 +16,7 @@ export function ScrollNarrative() {
     <section 
       id="about"
       ref={containerRef}
-      className="relative h-[150dvh] w-full bg-transparent px-4 md:px-12 lg:px-24"
+      className="relative h-[150dvh] md:h-[200dvh] lg:h-[250dvh] w-full bg-transparent px-4 md:px-12 lg:px-24"
     >
       <div className="sticky top-0 h-[100dvh] flex flex-col items-center justify-center">
         <div className="max-w-5xl mx-auto flex flex-wrap justify-center text-center gap-x-2 gap-y-1 sm:gap-x-4 sm:gap-y-2 lg:gap-x-6 lg:gap-y-4">
