@@ -1,0 +1,17 @@
+  <style>
+    a[href*="unicorn.studio"] { display: none !important; }
+  </style>
+  <div id="us-embed" style="width: 1440px; height: 900px"></div>
+  <script>
+  (function() {
+    var i = document.createElement("script");
+    i.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.2.6/dist/unicornStudio.umd.js";
+    i.onload = function() {
+      UnicornStudio.addScene({
+        elementId: 'us-embed',
+        filePath: 'project_clean.json'
+      });
+    };
+    (document.head || document.body).appendChild(i);
+  })();
+  </script>

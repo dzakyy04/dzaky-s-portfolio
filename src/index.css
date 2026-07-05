@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "@fontsource/outfit/400.css";
+@import "@fontsource/outfit/500.css";
+@import "@fontsource/outfit/600.css";
+@import "@fontsource/outfit/700.css";
+@import "@fontsource/outfit/800.css";
+@import "@fontsource/outfit/900.css";
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..800&display=swap');
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-neon: #00ff41; /* Neon green */
+  --color-neon-hover: #00d635;
+  --color-dark-base: #030303;
+  --color-dark-surface: #0a0a0a;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-base text-zinc-100 antialiased selection:bg-neon selection:text-black;
+    cursor: url('/cursor.svg') 2 2, auto;
+  }
+  
+  a, button, [role="button"], input, select, textarea {
+    cursor: url('/cursor.svg') 2 2, pointer;
+  }
+}
