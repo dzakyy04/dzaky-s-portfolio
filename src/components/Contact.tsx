@@ -33,7 +33,7 @@ export function Contact() {
                   <input 
                     type="text" 
                     id="name" 
-                    placeholder="John Doe"
+                    placeholder="Your name"
                     className="w-full bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-md px-4 py-3 text-white placeholder-zinc-700 focus:outline-none focus:border-neon focus:ring-1 focus:ring-neon transition-colors"
                   />
                 </div>
@@ -42,7 +42,7 @@ export function Contact() {
                   <input 
                     type="email" 
                     id="email" 
-                    placeholder="hello@example.com"
+                    placeholder="youremail@gmail.com"
                     className="w-full bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-md px-4 py-3 text-white placeholder-zinc-700 focus:outline-none focus:border-neon focus:ring-1 focus:ring-neon transition-colors"
                   />
                 </div>

@@ -10,25 +10,25 @@ const projects = [
   {
     title: "RSMH Web Profile",
     category: "Healthcare Frontend",
-    image: "/project1-rsmh-profile.png",
+    image: "/img/projects/project1-rsmh-profile.webp",
     description: "Rebuilt the hospital profile website frontend per Ministry of Health standardization guidelines, ensuring national regulatory compliance and visual consistency."
   },
   {
     title: "Siapicon",
     category: "Real-time Monitoring",
-    image: "/project2-siapicon.png",
+    image: "/img/projects/project2-siapicon.webp",
     description: "Geofencing-based HSE monitoring application designed for precise, real-time tracking of field personnel attendance and operational activities."
   },
   {
     title: "Citizen Clustering",
     category: "Data & Analytics",
-    image: "/project3-citizen-clustering.png",
+    image: "/img/projects/project3-citizen-clustering.webp",
     description: "Clustering-based analytical platform designed to categorize demographic welfare using the K-Means algorithm for accurate social aid targeting."
   },
   {
     title: "E-Surat Desa",
     category: "Public Service",
-    image: "/project4-pengajuan-surat-online.png",
+    image: "/img/projects/project4-pengajuan-surat-online.webp",
     description: "A centralized online portal for village residents to easily request official letters, simplifying administrative procedures and digitizing local governance."
   },
   {

@@ -25,7 +25,7 @@ export function Hero() {
       {/* Navbar */}
       <header className="w-full max-w-[1440px] flex justify-between items-center px-4 md:px-8 py-4 md:py-6 z-30 relative">
         <div className="flex items-center gap-2">
-          <span className="font-bold text-lg md:text-xl tracking-wide uppercase text-white">Dewa Dzaky</span>
+          <span className="font-bold text-lg md:text-xl tracking-wide uppercase text-white">Dzaky</span>
           <div className="w-2 h-2 bg-neon rounded-full" />
         </div>
         

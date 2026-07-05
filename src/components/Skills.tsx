@@ -1,6 +1,6 @@
 import { LogoLoop } from './react-bits/LogoLoop';
 import { DecryptedText } from './react-bits/DecryptedText';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useScroll, useVelocity, useSpring, useMotionValueEvent } from 'motion/react';
 import { Database, Lightning } from '@phosphor-icons/react';
 
@@ -37,36 +37,63 @@ const half = Math.ceil(techStack.length / 2);
 const firstHalf = techStack.slice(0, half);
 const secondHalf = techStack.slice(half);
 
+function SkillCard({ skill }: { skill: typeof techStack[0] }) {
+  const [isActive, setIsActive] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isActive) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (cardRef.current && !cardRef.current.contains(e.target as Node)) {
+        setIsActive(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isActive]);
+  
+  return (
+    <div 
+      ref={cardRef}
+      onClick={() => setIsActive(!isActive)}
+      onDoubleClick={() => window.open(skill.url, '_blank')}
+      className={`flex items-center gap-4 justify-center px-8 h-[80px] bg-[#050505]/80 backdrop-blur-sm border rounded-xl transition-all duration-300 cursor-pointer group/card ${
+        isActive 
+          ? 'border-neon/80 text-neon bg-neon/10 shadow-[0_0_30px_rgba(0,255,65,0.15)] scale-110 z-10' 
+          : 'border-zinc-800/80 hover:border-neon/80 hover:text-neon hover:bg-neon/10 hover:shadow-[0_0_30px_rgba(0,255,65,0.15)] hover:scale-110 hover:z-10'
+      }`}
+      title={`Click to highlight. Double click to open ${skill.name} docs`}
+    >
+      {skill.icon === 'oracle' ? (
+        <Database weight="fill" className={`w-8 h-8 shrink-0 transition-colors duration-300 ${isActive ? 'text-neon' : 'text-zinc-400 group-hover/card:text-neon'}`} />
+      ) : skill.icon === 'fiber' ? (
+        <Lightning weight="fill" className={`w-8 h-8 shrink-0 transition-colors duration-300 ${isActive ? 'text-neon' : 'text-zinc-400 group-hover/card:text-neon'}`} />
+      ) : (
+        <div 
+          className={`w-8 h-8 shrink-0 transition-colors duration-300 ${isActive ? 'bg-neon' : 'bg-zinc-400 group-hover/card:bg-neon'}`}
+          style={{
+            WebkitMaskImage: `url(https://cdn.simpleicons.org/${skill.icon})`,
+            WebkitMaskSize: 'contain',
+            WebkitMaskRepeat: 'no-repeat',
+            WebkitMaskPosition: 'center',
+            maskImage: `url(https://cdn.simpleicons.org/${skill.icon})`,
+            maskSize: 'contain',
+            maskRepeat: 'no-repeat',
+            maskPosition: 'center',
+          }}
+        />
+      )}
+      <span className={`font-mono text-sm tracking-widest uppercase font-bold whitespace-nowrap transition-colors duration-300 ${isActive ? 'text-white' : 'text-zinc-300 group-hover/card:text-white'}`}>
+        {skill.name}
+      </span>
+    </div>
+  );
+}
+
 const createNodes = (skills: typeof techStack) => 
   skills.map(skill => ({
-    href: skill.url,
     title: skill.name,
-    node: (
-      <div className="flex items-center gap-4 justify-center px-8 h-[80px] bg-[#050505]/80 backdrop-blur-sm border border-zinc-800/80 rounded-xl hover:border-neon/80 hover:text-neon transition-all duration-300 hover:bg-neon/10 hover:shadow-[0_0_30px_rgba(0,255,65,0.15)] hover:scale-110 hover:z-10 group/card cursor-pointer">
-        {skill.icon === 'oracle' ? (
-          <Database weight="fill" className="w-8 h-8 text-zinc-400 group-hover/card:text-neon transition-colors duration-300 shrink-0" />
-        ) : skill.icon === 'fiber' ? (
-          <Lightning weight="fill" className="w-8 h-8 text-zinc-400 group-hover/card:text-neon transition-colors duration-300 shrink-0" />
-        ) : (
-          <div 
-            className="w-8 h-8 bg-zinc-400 group-hover/card:bg-neon transition-colors duration-300 shrink-0"
-            style={{
-              WebkitMaskImage: `url(https://cdn.simpleicons.org/${skill.icon})`,
-              WebkitMaskSize: 'contain',
-              WebkitMaskRepeat: 'no-repeat',
-              WebkitMaskPosition: 'center',
-              maskImage: `url(https://cdn.simpleicons.org/${skill.icon})`,
-              maskSize: 'contain',
-              maskRepeat: 'no-repeat',
-              maskPosition: 'center',
-            }}
-          />
-        )}
-        <span className="font-mono text-sm tracking-widest uppercase font-bold text-zinc-300 group-hover/card:text-white transition-colors duration-300 whitespace-nowrap">
-          {skill.name}
-        </span>
-      </div>
-    )
+    node: <SkillCard skill={skill} />
   }));
 
 const logos1 = createNodes(firstHalf);
