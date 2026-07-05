@@ -59,7 +59,7 @@ export const SplitText: React.FC<SplitTextProps> = ({
           {word.split('').map((char, charIndex) => (
             <motion.span
               key={charIndex}
-              variants={child}
+              variants={child as any}
               style={{ display: 'inline-block' }}
             >
               {char}

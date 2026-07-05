@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'motion/react';
 
 interface BlurTextProps {
@@ -10,7 +10,7 @@ interface BlurTextProps {
 export const BlurText = ({ text, delay = 0, className = '' }: BlurTextProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
-  const [elements, setElements] = useState<JSX.Element[]>([]);
+  const [elements, setElements] = useState<React.JSX.Element[]>([]);
 
   useEffect(() => {
     const words = text.split(' ');

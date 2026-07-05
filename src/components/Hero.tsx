@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 import { X } from '@phosphor-icons/react';
 import { UnicornScene } from './UnicornScene';
-import SplitText from './react-bits/SplitText';
 import { BlurText } from './react-bits/BlurText';
 import { DecryptedText } from './react-bits/DecryptedText';
 import { Magnet } from './react-bits/Magnet';

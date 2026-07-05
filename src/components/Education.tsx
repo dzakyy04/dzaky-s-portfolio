@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { DecryptedText } from './react-bits/DecryptedText';
-import Lanyard from './react-bits/Lanyard';
 
 const historyData = [
   {
@@ -24,7 +23,7 @@ const historyData = [
   }
 ];
 
-function EducationCard({ item, index, total }: { item: typeof historyData[0], index: number, total: number }) {
+function EducationCard({ item, index }: { item: typeof historyData[0], index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   
   // Simple entrance animation
@@ -103,7 +102,7 @@ export function Education() {
         {/* Right: Scrolling Stack */}
         <div className="lg:w-2/3 relative pb-[10vh] mt-16 lg:mt-0" ref={containerRef}>
           {historyData.map((item, index) => (
-            <EducationCard key={index} item={item} index={index} total={historyData.length} />
+            <EducationCard key={index} item={item} index={index} />
           ))}
         </div>
         

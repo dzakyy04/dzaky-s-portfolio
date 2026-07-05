@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, ReactNode } from 'react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
 import { motion, useSpring } from 'motion/react';
 
 interface MagnetProps {

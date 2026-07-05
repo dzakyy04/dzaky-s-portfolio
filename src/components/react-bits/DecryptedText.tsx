@@ -27,7 +27,7 @@ export const DecryptedText = ({ text, speed = 50, className = '', delay = 0 }: D
         setDisplayText((current) => 
           current
             .split('')
-            .map((letter, index) => {
+            .map((_, index) => {
               if (index < iteration) return text[index];
               return CHARS[Math.floor(Math.random() * CHARS.length)];
             })
