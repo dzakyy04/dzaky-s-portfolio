@@ -15,15 +15,15 @@ const projects = [
   },
   {
     title: "Siapicon",
-    category: "Real-time Monitoring",
+    category: "Attendance System",
     image: "/img/projects/project2-siapicon.webp",
-    description: "Geofencing-based HSE monitoring application designed for precise, real-time tracking of field personnel attendance and operational activities."
+    description: "A geofencing-based attendance application to easily track field personnel presence and daily activities."
   },
   {
     title: "Citizen Clustering",
-    category: "Data & Analytics",
+    category: "Data Clustering",
     image: "/img/projects/project3-citizen-clustering.webp",
-    description: "Clustering-based analytical platform designed to categorize demographic welfare using the K-Means algorithm for accurate social aid targeting."
+    description: "An application to group village residents using the K-Means algorithm, making it easier to distribute social aid accurately."
   },
   {
     title: "E-Surat Desa",
@@ -32,10 +32,10 @@ const projects = [
     description: "A centralized online portal for village residents to easily request official letters, simplifying administrative procedures and digitizing local governance."
   },
   {
-    title: "More Missions",
-    category: "View Archive",
-    image: null,
-    description: "Explore the full archive of past developments, experiments, and open-source contributions."
+    title: "Jawabin",
+    category: "AI & NLP",
+    image: "/img/projects/project5-jawabin.webp",
+    description: "An extractive question-answering platform powered by a fine-tuned IndoBERT model to provide precise answers from Indonesian text."
   }
 ];
 
@@ -138,6 +138,8 @@ export function Projects() {
             <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/20 group-hover:border-neon group-[.is-active]:border-neon transition-colors" />
           </div>
         ))}
+        {/* Spacer to allow the last card to reach the focal point (35% from left) */}
+        <div className="w-[5vw] md:w-[20vw] lg:w-[40vw] shrink-0" />
       </div>
     </section>
   );

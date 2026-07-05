@@ -121,7 +121,7 @@ export function Hero() {
               <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-100">Fullstack<br/>Developer</h3>
             </div>
             <p className="text-zinc-400 text-xs leading-relaxed font-mono">
-              With hands-on experience, I focus on building scalable web architectures. From robust backends to highly interactive frontends with high industry standards.
+              I've spent the past year gaining hands-on experience building real-world projects. I enjoy connecting the dots between front-end interfaces and back-end logic.
             </p>
             {/* Decorative corner brackets */}
             <div className="absolute -top-[1px] -left-[1px] w-4 h-4 border-t border-l border-neon/50 rounded-tl-lg" />
@@ -142,7 +142,7 @@ export function Hero() {
               <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-100">Problem<br/>Solver</h3>
             </div>
             <p className="text-zinc-400 text-xs leading-relaxed font-mono">
-              I engineer applications to solve real-world problems. Turning complex workflows into efficient, automated, and streamlined systems that truly matter.
+              I love figuring things out. Whether it's tracking down a tricky bug or learning a new tool, I'm always eager to dive in and find a solution.
             </p>
             {/* Decorative corner brackets */}
             <div className="absolute -top-[1px] -left-[1px] w-4 h-4 border-t border-l border-neon/50 rounded-tl-lg" />
