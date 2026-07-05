@@ -7,20 +7,20 @@ const historyData = [
   {
     institution: "RSUP Dr. Mohammad Hoesin",
     degree: "Programmer",
-    year: "Okt 2025 — Sekarang",
-    description: "Bertanggung jawab dalam mengembangkan dan memelihara sistem perangkat lunak untuk mendukung efisiensi operasional layanan kesehatan di rumah sakit. Berfokus pada keandalan dan optimalisasi aplikasi."
+    year: "Oct 2025 — Present",
+    description: "Spearheaded critical digital transformations by engineering robust in-house platforms that eliminated third-party dependencies and optimized hospital workflows. Developed automated scheduling systems and integrated advanced biometric authentication to drastically streamline outpatient operations, ensuring strict compliance with national healthcare standards."
   },
   {
-    institution: "Universitas Sriwijaya",
-    degree: "Teknik Informatika",
-    year: "2021 — 2025",
-    description: "Di sinilah pijakan pertama saya dalam dunia teknologi benar-benar diuji. Tidak sekadar menghafal teori, saya belajar bagaimana menerjemahkan logika kompleks menjadi solusi nyata. Dari dasar ilmu komputer hingga merancang arsitektur sistem yang lebih terstruktur."
+    institution: "Sriwijaya University",
+    degree: "Bachelor of Informatics",
+    year: "Aug 2021 — Aug 2025",
+    description: "Graduated with exceptional academic standing. Deeply immersed in core technical foundations spanning software engineering, database architecture, and distributed systems. Beyond academic theory, this is where I mastered the art of translating complex logic into tangible, object-oriented solutions and designing highly scalable architectures."
   },
   {
     institution: "Bangkit Academy",
     degree: "Cloud Computing Learning Path",
-    year: "2023",
-    description: "Sebuah lompatan besar. Terpilih dalam program intensif dari Google, GoTo, dan Traveloka ini memaksa saya keluar dari zona nyaman. Di sini saya belajar membangun infrastruktur cloud yang tangguh, scalable, dan siap menghadapi kerasnya standar industri."
+    year: "Aug 2023 — Jan 2024",
+    description: "Graduated with distinction as a top-performing cohort member. Recognized for outstanding engagement across technical, soft skills, and professional disciplines. Mastered the architecture and deployment of resilient, highly-scalable cloud infrastructures engineered to handle rigorous, real-world industry demands."
   }
 ];
 
@@ -52,7 +52,7 @@ function EducationCard({ item, index }: { item: typeof historyData[0], index: nu
         filter,
         transformPerspective: 1200
       }}
-      className="p-8 md:p-12 border border-zinc-800 bg-[#050505]/90 backdrop-blur-md rounded-lg hover:border-neon/50 transition-colors relative group"
+      className="p-6 md:p-12 border border-zinc-800 bg-[#050505]/90 backdrop-blur-md rounded-lg hover:border-neon/50 transition-colors relative group"
     >
       <div className="font-mono text-neon text-sm mb-4 font-bold tracking-widest">{item.year}</div>
       <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-2 text-zinc-100">{item.institution}</h3>
@@ -77,20 +77,20 @@ export function Education() {
   const containerRef = useRef<HTMLDivElement>(null);
   
   return (
-    <section id="journey" className="relative w-full bg-transparent text-white px-6 md:px-12 lg:px-24 py-32 border-t border-zinc-800/30 backdrop-blur-[2px]">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24">
+    <section id="journey" className="relative w-full bg-transparent text-white px-4 md:px-12 lg:px-24 py-16 md:py-32 border-t border-zinc-800/30 backdrop-blur-[2px]">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-24">
         
         {/* Left: Sticky Title */}
         <div className="lg:w-1/3">
-          <div className="sticky top-32 flex flex-col gap-4">
-            <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-6">
+          <div className="relative lg:sticky lg:top-32 flex flex-col items-center text-center lg:items-start lg:text-left gap-4">
+            <h2 className="text-5xl md:text-6xl font-black tracking-tighter uppercase mb-6">
               Journey & <br/>
               <span className="text-neon">Experience</span>
             </h2>
             <div className="w-12 h-1 bg-neon" />
             <div className="mt-4">
               <DecryptedText 
-                text="// RIWAYAT PENDIDIKAN & PEKERJAAN"
+                text="// EDUCATION & CAREER HISTORY"
                 speed={50}
                 className="text-zinc-400 font-mono text-sm tracking-widest"
               />
@@ -104,8 +104,8 @@ export function Education() {
         </div>
 
         {/* Right: Scrolling Stack */}
-        <div className="lg:w-2/3 flex flex-col gap-[20vh] pb-[15vh] mt-24 lg:mt-0" ref={containerRef}>
-          <div className="space-y-[15vh]">
+        <div className="lg:w-2/3 flex flex-col gap-[10vh] lg:gap-[20vh] pb-[10vh] mt-16 lg:mt-0" ref={containerRef}>
+          <div className="space-y-[10vh] lg:space-y-[15vh]">
             {historyData.map((item, index) => (
               <EducationCard key={index} item={item} index={index} />
             ))}

@@ -43,7 +43,7 @@ export function About() {
         </div>
 
         {/* Right: Scrolling Stack */}
-        <div className="lg:w-2/3 flex flex-col gap-[30vh] pb-[20vh] mt-24 lg:mt-0" ref={containerRef}>
+        <div className="lg:w-2/3 flex flex-col gap-24 lg:gap-[30vh] pb-12 lg:pb-[20vh] mt-24 lg:mt-0" ref={containerRef}>
           {manifestos.map((item, index) => (
             <Card key={index} index={index} title={item.title} body={item.body} />
           ))}

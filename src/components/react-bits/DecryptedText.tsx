@@ -38,7 +38,7 @@ export const DecryptedText = ({ text, speed = 50, className = '', delay = 0 }: D
           clearInterval(interval);
         }
         
-        iteration += 1 / 3; // takes 3 frames per letter to reveal
+        iteration += 1; // 1 frame per letter to reveal (faster animation)
       }, speed);
       
       return () => clearInterval(interval);

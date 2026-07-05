@@ -42,7 +42,7 @@ const createNodes = (skills: typeof techStack) =>
     href: skill.url,
     title: skill.name,
     node: (
-      <div className="flex items-center gap-4 justify-center px-8 h-[80px] bg-[#050505]/80 backdrop-blur-sm border border-zinc-800/80 rounded-xl hover:border-neon/80 hover:text-neon transition-all duration-300 hover:bg-neon/10 hover:shadow-[0_0_30px_rgba(0,255,65,0.15)] group/card cursor-pointer">
+      <div className="flex items-center gap-4 justify-center px-8 h-[80px] bg-[#050505]/80 backdrop-blur-sm border border-zinc-800/80 rounded-xl hover:border-neon/80 hover:text-neon transition-all duration-300 hover:bg-neon/10 hover:shadow-[0_0_30px_rgba(0,255,65,0.15)] hover:scale-110 hover:z-10 group/card cursor-pointer">
         {skill.icon === 'oracle' ? (
           <Database weight="fill" className="w-8 h-8 text-zinc-400 group-hover/card:text-neon transition-colors duration-300 shrink-0" />
         ) : skill.icon === 'fiber' ? (
@@ -92,11 +92,11 @@ export function Skills() {
   });
 
   return (
-    <section id="skills" className="relative w-full bg-transparent text-white px-6 md:px-12 lg:px-24 py-32 border-t border-zinc-800/30 backdrop-blur-[2px]">
+    <section id="skills" className="relative w-full bg-transparent text-white px-4 md:px-12 lg:px-24 py-16 md:py-32 border-t border-zinc-800/30 backdrop-blur-[2px]">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         
         <div className="flex flex-col items-center text-center gap-4">
-          <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-6">
+          <h2 className="text-5xl md:text-6xl font-black tracking-tighter uppercase mb-6">
             Skills & <span className="text-neon">Tools</span>
           </h2>
           <div className="w-12 h-1 bg-neon" />
@@ -109,27 +109,29 @@ export function Skills() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col gap-8 relative overflow-hidden -mx-6 px-6 md:-mx-12 md:px-12 lg:-mx-24 lg:px-24">
+        <div className="w-full flex flex-col gap-6 md:gap-8 relative overflow-hidden -mx-4 px-4 md:-mx-12 md:px-12 lg:-mx-24 lg:px-24">
            {/* Fade Out Gradients for edges */}
-           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+           <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+           <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
 
            <LogoLoop 
              logos={logos1}
-             speed={(120 * scrollDir) + velocityOffset}
+             speed={(50 * scrollDir) + (velocityOffset * 0.5)}
              direction="left"
              pauseOnHover={true}
              logoHeight={80}
-             gap={32} 
+             gap={32}
+             className="py-2"
            />
            
            <LogoLoop 
              logos={logos2}
-             speed={(100 * scrollDir) + velocityOffset}
+             speed={(40 * scrollDir) + (velocityOffset * 0.5)}
              direction="right"
              pauseOnHover={true}
              logoHeight={80}
-             gap={32} 
+             gap={32}
+             className="py-2"
            />
         </div>
 
