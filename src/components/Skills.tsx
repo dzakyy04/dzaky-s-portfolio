@@ -1,7 +1,7 @@
 import { LogoLoop } from './react-bits/LogoLoop';
 import { DecryptedText } from './react-bits/DecryptedText';
 import { useState, useRef, useEffect } from 'react';
-import { useScroll, useVelocity, useSpring, useMotionValueEvent } from 'motion/react';
+
 import { Database, Lightning } from '@phosphor-icons/react';
 
 const techStack = [
@@ -100,23 +100,6 @@ const logos1 = createNodes(firstHalf);
 const logos2 = createNodes(secondHalf);
 
 export function Skills() {
-  const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, { damping: 50, stiffness: 400 });
-  
-  const [scrollDir, setScrollDir] = useState(1);
-  const [velocityOffset, setVelocityOffset] = useState(0);
-
-  useMotionValueEvent(smoothVelocity, "change", (latest) => {
-    // Change base direction if scrolling fast enough
-    if (latest < -20) {
-      setScrollDir(-1);
-    } else if (latest > 20) {
-      setScrollDir(1);
-    }
-    // Amplify the speed during scroll
-    setVelocityOffset(latest / 5);
-  });
 
   return (
     <section id="skills" className="relative w-full bg-transparent text-white px-4 md:px-12 lg:px-24 py-16 md:py-32 border-t border-zinc-800/30 backdrop-blur-[2px]">
@@ -143,7 +126,7 @@ export function Skills() {
 
            <LogoLoop 
              logos={logos1}
-             speed={(50 * scrollDir) + (velocityOffset * 0.5)}
+             speed={50}
              direction="left"
              pauseOnHover={true}
              logoHeight={80}
@@ -153,7 +136,7 @@ export function Skills() {
            
            <LogoLoop 
              logos={logos2}
-             speed={(40 * scrollDir) + (velocityOffset * 0.5)}
+             speed={40}
              direction="right"
              pauseOnHover={true}
              logoHeight={80}

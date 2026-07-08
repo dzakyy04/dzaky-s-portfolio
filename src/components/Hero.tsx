@@ -24,7 +24,8 @@ export function Hero() {
 
       {/* Navbar */}
       <header className="w-full max-w-[1440px] flex justify-between items-center px-4 md:px-8 py-4 md:py-6 z-30 relative">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <img src="/img/logo.png" alt="Dzaky's Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain drop-shadow-[0_0_10px_rgba(0,255,65,0.5)]" />
           <span className="font-bold text-lg md:text-xl tracking-wide uppercase text-white">
             <ShinyText text="Dzaky's Portfolio" speed={3} />
           </span>
@@ -151,19 +152,19 @@ export function Hero() {
           </motion.div>
         </Magnet>
 
-        {/* Action Buttons (over chest) */}
+        {/* Action Buttons */}
         <motion.div 
-          className="absolute bottom-[8vh] md:bottom-[10vh] w-full px-6 md:px-0 md:w-auto md:left-12 lg:left-1/2 lg:-translate-x-1/2 flex flex-col md:flex-row items-center gap-4 pointer-events-auto z-30"
+          className="absolute bottom-8 md:bottom-[10vh] w-full px-4 md:px-0 md:w-auto md:left-12 lg:left-1/2 lg:-translate-x-1/2 flex flex-row items-center justify-center gap-3 md:gap-4 pointer-events-auto z-30"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
         >
-          <button className="w-full md:w-auto px-8 py-3 bg-black/50 backdrop-blur-md border border-zinc-700 text-white font-bold uppercase tracking-widest text-xs hover:border-neon transition-colors rounded-sm">
+          <a href="#contact" className="flex-1 md:flex-none px-2 md:px-8 py-3 bg-black/50 backdrop-blur-md border border-zinc-700 text-white font-bold uppercase tracking-widest text-[10px] md:text-xs hover:border-neon transition-colors rounded-sm text-center block">
             CONTACT ME
-          </button>
-          <button className="w-full md:w-auto px-8 py-3 bg-neon text-black font-bold uppercase tracking-widest text-xs hover:bg-neon-hover transition-colors rounded-sm shadow-[0_0_20px_rgba(0,255,65,0.3)]">
+          </a>
+          <a href="https://drive.google.com/file/d/1wUorbcGtCJaiNm49qnhiOJpWW_EfjIx_/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex-1 md:flex-none px-2 md:px-8 py-3 bg-neon text-black font-bold uppercase tracking-widest text-[10px] md:text-xs hover:bg-neon-hover transition-colors rounded-sm shadow-[0_0_20px_rgba(0,255,65,0.3)] text-center block whitespace-nowrap">
             DOWNLOAD CV
-          </button>
+          </a>
         </motion.div>
 
       </div>

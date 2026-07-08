@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowUpRight, ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 import { DecryptedText } from './react-bits/DecryptedText';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,31 +11,36 @@ const projects = [
     title: "RSMH Web Profile",
     category: "Healthcare Frontend",
     image: "/img/projects/project1-rsmh-profile.webp",
-    description: "Rebuilt the hospital profile website frontend per Ministry of Health standardization guidelines, ensuring national regulatory compliance and visual consistency."
+    description: "Rebuilt the hospital profile website frontend per Ministry of Health standardization guidelines, ensuring national regulatory compliance and visual consistency.",
+    link: "https://rsmh.co.id/"
   },
   {
     title: "Siapicon",
     category: "Attendance System",
     image: "/img/projects/project2-siapicon.webp",
-    description: "A geofencing-based attendance application to easily track field personnel presence and daily activities."
+    description: "A geofencing-based attendance application to easily track field personnel presence and daily activities.",
+    link: "https://github.com/dzakyy04/siapicon"
   },
   {
     title: "Citizen Clustering",
     category: "Data Clustering",
     image: "/img/projects/project3-citizen-clustering.webp",
-    description: "An application to group village residents using the K-Means algorithm, making it easier to distribute social aid accurately."
+    description: "An application to group village residents using the K-Means algorithm, making it easier to distribute social aid accurately.",
+    link: "https://github.com/dzakyy04/pengelompokkan-warga-kmeans"
   },
   {
     title: "E-Surat Desa",
     category: "Public Service",
     image: "/img/projects/project4-pengajuan-surat-online.webp",
-    description: "A centralized online portal for village residents to easily request official letters, simplifying administrative procedures and digitizing local governance."
+    description: "A centralized online portal for village residents to easily request official letters, simplifying administrative procedures and digitizing local governance.",
+    link: "https://github.com/dzakyy04/Pengajuan-Surat-Online"
   },
   {
     title: "Jawabin",
     category: "AI & NLP",
     image: "/img/projects/project5-jawabin.webp",
-    description: "An extractive question-answering platform powered by a fine-tuned IndoBERT model to provide precise answers from Indonesian text."
+    description: "An extractive question-answering platform powered by a fine-tuned IndoBERT model to provide precise answers from Indonesian text.",
+    link: "https://github.com/dzakyy04/jawabin"
   }
 ];
 
@@ -69,8 +74,8 @@ export function Projects() {
         ScrollTrigger.create({
           trigger: card,
           containerAnimation: scrollTween,
-          start: "left 35%",
-          end: "right 35%",
+          start: "left 40%",
+          end: "right 40%",
           toggleClass: "is-active",
         });
       });
@@ -79,6 +84,14 @@ export function Projects() {
     
     return () => ctx.revert();
   }, []);
+
+  const scrollNext = () => {
+    window.scrollBy({ top: window.innerWidth * 0.5, behavior: 'smooth' });
+  };
+
+  const scrollPrev = () => {
+    window.scrollBy({ top: -(window.innerWidth * 0.5), behavior: 'smooth' });
+  };
 
   return (
     <section id="projects" ref={wrap} className="relative overflow-hidden bg-transparent text-white border-t border-zinc-800/30">
@@ -97,9 +110,18 @@ export function Projects() {
         </div>
       </div>
 
+      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 md:bottom-12 md:left-auto md:translate-x-0 md:right-12 lg:right-24 z-50 flex gap-4 pointer-events-auto">
+        <button onClick={scrollPrev} className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-zinc-700 bg-black/50 backdrop-blur-md flex items-center justify-center hover:bg-neon hover:text-black hover:border-neon transition-colors">
+          <ArrowLeft size={20} weight="bold" />
+        </button>
+        <button onClick={scrollNext} className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-zinc-700 bg-black/50 backdrop-blur-md flex items-center justify-center hover:bg-neon hover:text-black hover:border-neon transition-colors">
+          <ArrowRight size={20} weight="bold" />
+        </button>
+      </div>
+
       <div ref={track} className="flex h-[100dvh] items-center pt-32 md:pt-24 px-4 md:px-12 lg:px-24 gap-8 md:gap-12 lg:gap-24 w-max">
         {projects.map((p, i) => (
-          <div key={i} className="project-card relative group flex-shrink-0 w-[85vw] md:w-[60vw] lg:w-[45vw] aspect-video bg-zinc-900 border border-zinc-800 overflow-hidden">
+          <a key={i} href={p.link} target="_blank" rel="noopener noreferrer" className="project-card block cursor-pointer relative group flex-shrink-0 w-[85vw] md:w-[60vw] lg:w-[45vw] aspect-video bg-zinc-900 border border-zinc-800 overflow-hidden">
             {p.image ? (
               <>
                 <div 
@@ -136,7 +158,7 @@ export function Projects() {
             <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/20 group-hover:border-neon group-[.is-active]:border-neon transition-colors" />
             <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/20 group-hover:border-neon group-[.is-active]:border-neon transition-colors" />
             <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/20 group-hover:border-neon group-[.is-active]:border-neon transition-colors" />
-          </div>
+          </a>
         ))}
         {/* Spacer to allow the last card to reach the focal point (35% from left) */}
         <div className="w-[5vw] md:w-[20vw] lg:w-[40vw] shrink-0" />

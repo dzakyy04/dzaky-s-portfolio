@@ -36,7 +36,8 @@ export function FloatingNav() {
       >
         <div className="w-full max-w-[1440px] flex justify-between items-center px-4 md:px-8 py-4">
           
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            <img src="/img/logo.png" alt="Dzaky's Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain drop-shadow-[0_0_10px_rgba(0,255,65,0.5)]" />
             <span className="font-bold text-lg md:text-xl tracking-wide uppercase text-white">
               <ShinyText text="Dzaky's Portfolio" speed={3} />
             </span>
