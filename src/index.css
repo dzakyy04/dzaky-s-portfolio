@@ -29,6 +29,10 @@
 }
 
 @layer base {
+  html, body {
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-dark-base text-zinc-100 antialiased selection:bg-neon selection:text-black;
     cursor: url('/cursor.svg') 2 2, auto;

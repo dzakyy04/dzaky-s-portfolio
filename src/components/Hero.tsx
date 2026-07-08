@@ -113,7 +113,7 @@ export function Hero() {
         {/* Left Card */}
         <Magnet padding={50} magnetStrength={20} className="hidden lg:block absolute left-4 md:left-12 lg:left-24 top-[15vh] z-30 pointer-events-auto">
           <motion.div 
-            className="w-[300px] p-6 border border-zinc-800 bg-[#050505]/60 backdrop-blur-md rounded-lg cursor-default"
+            className="w-[300px] p-6 border border-zinc-800 bg-[#050505]/60 backdrop-blur-md rounded-lg"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -134,7 +134,7 @@ export function Hero() {
         {/* Right Card */}
         <Magnet padding={50} magnetStrength={20} className="hidden lg:block absolute right-4 md:right-12 lg:right-24 top-[30vh] z-30 pointer-events-auto">
           <motion.div 
-            className="w-[300px] p-6 border border-zinc-800 bg-[#050505]/60 backdrop-blur-md rounded-lg cursor-default"
+            className="w-[300px] p-6 border border-zinc-800 bg-[#050505]/60 backdrop-blur-md rounded-lg"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.7 }}
