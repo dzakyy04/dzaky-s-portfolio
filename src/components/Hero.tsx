@@ -101,7 +101,7 @@ export function Hero() {
       </div>
 
       {/* Center Portrait Container - Fixed aspect ratio to prevent stretching */}
-      <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[800px] md:w-full max-w-[1050px] aspect-[1440/900] z-10 pointer-events-auto flex items-end justify-center">
+      <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[800px] md:w-full lg:max-w-[650px] xl:max-w-[900px] 2xl:max-w-[1050px] aspect-[1440/900] z-10 pointer-events-auto flex items-end justify-center">
         <UnicornScene className="w-full h-full origin-bottom" />
         {/* Gradient fade at the bottom to blend chest into background */}
         <div className="absolute bottom-10 left-0 w-full h-40 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none z-20" />
@@ -111,7 +111,7 @@ export function Hero() {
       <div className="relative w-full max-w-[1440px] flex-1 pointer-events-none z-20">
         
         {/* Left Card */}
-        <Magnet padding={50} magnetStrength={20} className="hidden lg:block absolute left-4 md:left-12 lg:left-24 top-[15vh] z-30 pointer-events-auto">
+        <Magnet padding={50} magnetStrength={20} className="hidden lg:block absolute left-4 md:left-12 lg:left-24 top-[8vh] z-30 pointer-events-auto">
           <motion.div 
             className="w-[300px] p-6 border border-zinc-800 bg-[#050505]/60 backdrop-blur-md rounded-lg"
             initial={{ opacity: 0, x: -50 }}
@@ -132,7 +132,7 @@ export function Hero() {
         </Magnet>
 
         {/* Right Card */}
-        <Magnet padding={50} magnetStrength={20} className="hidden lg:block absolute right-4 md:right-12 lg:right-24 top-[30vh] z-30 pointer-events-auto">
+        <Magnet padding={50} magnetStrength={20} className="hidden lg:block absolute right-4 md:right-12 lg:right-24 top-[20vh] z-30 pointer-events-auto">
           <motion.div 
             className="w-[300px] p-6 border border-zinc-800 bg-[#050505]/60 backdrop-blur-md rounded-lg"
             initial={{ opacity: 0, x: 50 }}
@@ -154,7 +154,7 @@ export function Hero() {
 
         {/* Action Buttons */}
         <motion.div 
-          className="absolute bottom-8 md:bottom-[10vh] w-full px-4 md:px-0 md:w-auto md:left-12 lg:left-1/2 lg:-translate-x-1/2 flex flex-row items-center justify-center gap-3 md:gap-4 pointer-events-auto z-30"
+          className="absolute bottom-8 md:bottom-[12vh] w-full px-4 md:px-0 md:w-auto md:left-12 lg:left-1/2 lg:-translate-x-1/2 flex flex-row items-center justify-center gap-3 md:gap-4 pointer-events-auto z-30"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}

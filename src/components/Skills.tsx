@@ -119,7 +119,7 @@ export function Skills() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col gap-6 md:gap-8 relative overflow-hidden -mx-4 px-4 md:-mx-12 md:px-12 lg:-mx-24 lg:px-24">
+        <div className="w-full flex flex-col gap-6 md:gap-8 relative overflow-hidden">
            {/* Fade Out Gradients for edges */}
            <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
            <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
